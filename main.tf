@@ -40,7 +40,7 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "transit-attachment" {
   subnet_ids         = var.subnet_id
   transit_gateway_id = var.tgw
   vpc_id             = var.vpc
-  ipv6_support       = "enable"
+  ipv6_support       = "disable"
   tags = {
     "Name" = "Network-Prod-E1-TGShareAttachment001"
   }
@@ -50,4 +50,5 @@ resource "aws_route" "transit_gateway_route" {
   route_table_id         = var.route_table_id
   destination_cidr_block = var.cidr
   gateway_id             = var.tgw
+  depends_on = [aws_internet_gateway.MyIGW]
 }
