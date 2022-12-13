@@ -27,5 +27,3 @@ variable "sg_id" {
   type        = string
   default     = "sg-0f760a4c6ec28bee5"
 }
-
-[roo
