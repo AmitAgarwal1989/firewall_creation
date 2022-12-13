@@ -50,5 +50,5 @@ resource "aws_route" "transit_gateway_route" {
   route_table_id         = var.route_table_id
   destination_cidr_block = var.cidr
   gateway_id             = var.tgw
-  depends_on = [aws_internet_gateway.MyIGW]
+  depends_on = [aws_ec2_transit_gateway_vpc_attachment.transit-attachment]
 }
